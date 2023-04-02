@@ -1,2 +1,2 @@
-# cop27
-Visuals for COP27
+# sanctions map
+Single page map app for Delaney Simon report
