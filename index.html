@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Global Climate Financing</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mapbox-gl-animated-popup@v0.3.0/dist/mapbox-gl-animated-popup.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@400;900&display=swap" rel="stylesheet">
+	<link href='style.css' rel='stylesheet' />
+
+	<script>
+$(document).ready(function(){
+  $("#mobilemenubtn").click(function(){
+    $(".box").slideToggle("slow");
+  });
+});
+</script>
+
+</head>
+<body>
+<!-- Load the `mapbox-gl-geocoder` plugin. -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+<div id="mobilemenubtn"> MENU </div>
+<div class="box">
+
+<h1>Sanctioned Countries</h1>
+<p id="tagline">Lorem ipsum dolor amet</p>
+<hr />
+<p id="tagline"><strong>LEGEND</strong></p>
+<!--<strong>Click on a country to see more.</strong>-->
+<ul id="legend">
+<li><div><span style='background-color: rgba(214, 164, 76, 0.87); border: solid 1px #fff; border-radius: 100px; width: 10px; height: 10px;'></span>Subject to Treasury OFAC Sanctions</div></li>
+</ul>
+<nav id="menu"></nav>
+</div>
+<div id="map"></div>
+<div id="mobilemenu"></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/daltonwb/clfzvgfz0000i01rzwzqihp87',
+    center: [-48.08807, 26.22295],
+    zoom: 2.4,
+    bearing: 14.4,
+    projection: 'globe',
+    pitch: 21.50,
+    attributionControl: false
+});
+
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+);
+
+map.scrollZoom.disable();
+map.addControl(new mapboxgl.FullscreenControl());
+map.addControl(new mapboxgl.NavigationControl({
+    visualizePitch: true
+}));
+map.addControl(new mapboxgl.AttributionControl({
+    customAttribution: 'International Crisis Group | Data: U.S. Treasury Department</a>'
+}));
+
+// PASSIVE ROTATION
+map.on('load', () => {
+
+    const center = map.getCenter();
+    const newCenter = [center.lng + 360, center.lat];
+    map.easeTo({
+        center: newCenter,
+        duration: 100000,
+        easing: n => n
+    });
+
+    // Globe atmosphere
+
+    map.setFog({
+        'horizon-blend': 0.1,
+        'star-intensity': 0.15,
+        'color': '#4a6993',
+        'high-color': 'rgba(36, 51, 71, 5)',
+        'space-color': 'rgba(16, 24, 32, 1.0)'
+    });
+
+
+
+});
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,2 +1,2 @@
-# sanctions-map
-Single page app of sanctioned countries in the world
+# cop27
+Visuals for COP27
