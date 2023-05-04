@@ -18,7 +18,7 @@ body {
     z-index: 9999;
     width: 250px;
     text-align: left;
-    font-family: 'Raleway', sans-serif;
+    font-family: "franklin-gothic-urw", sans-serif;
     margin-bottom: 30px;
     text-transform: capitalize;
 }
@@ -110,7 +110,7 @@ a {
 }
 
 h1 {
-    font-family: 'Raleway', sans-serif;
+    font-family: "franklin-gothic-urw", sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
@@ -129,7 +129,7 @@ h1 {
 
 
 h2 {
-    font-family: 'Raleway', sans-serif;
+    font-family: "franklin-gothic-urw", sans-serif;
     color: #bed2ff;
     font-size: 16px;
     margin-top: 0;
@@ -164,22 +164,21 @@ p.infobox-dateline {
 
 #tagline {
     vertical-align: middle;
-    color: #bed2ff;
-    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-family: 'franklin-gothic-urw', sans-serif;
     width: 270px;
+    font-weight: bold;
 }
 
 .box {
-    background: #313946;
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 1;
     border-radius: 4px;
     padding: 16px;
-    box-shadow: 0 0px 16px rgb(0 0 0 / 48%);
-    font-family: 'Raleway', sans-serif;
-    color: #bed2ff;
+    font-family: "franklin-gothic-urw", sans-serif;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
